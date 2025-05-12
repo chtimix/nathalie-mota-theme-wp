@@ -75,7 +75,7 @@ function nm_register_taxonomy_format() {
     );
 
     $args = array(
-        'hierarchical'      => false,
+        'hierarchical'      => true,
         'labels'            => $labels,
         'show_ui'           => true,
         'show_in_rest'      => true,

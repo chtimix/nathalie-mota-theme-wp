@@ -11,8 +11,12 @@
 <header class="site-header">
     <div class="container">
         <div class="logo">
+            <?php 
+            $logo = get_field('logo', 'option');
+        
+             ?>
             <a href="<?php echo esc_url(home_url('/')); ?>">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-nathalie-mota.png" alt="<?php bloginfo('name'); ?>">
+                <img src="<?php echo $logo['url']; ?>" alt="<?php bloginfo('name'); ?>">
             </a>
         </div>
         <nav class="main-navigation">
