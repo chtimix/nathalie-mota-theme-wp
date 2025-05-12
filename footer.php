@@ -1,0 +1,10 @@
+<footer class="site-footer">
+    <div class="footer-container">
+        <a href="<?php echo esc_url(home_url('/mentions-legales')); ?>">Mentions légales</a>
+        <a href="<?php echo esc_url(home_url('/vie-privee')); ?>">Vie privée</a>
+        <span>Tous droits réservés</span>
+    </div>
+    <?php wp_footer(); ?>
+</footer>
+</body>
+</html>
