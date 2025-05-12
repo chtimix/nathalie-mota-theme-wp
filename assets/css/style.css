@@ -1,27 +1,27 @@
 @font-face {
   font-family: "Space Mono";
-  src: url("../fonts/space-mono/space-mono-regular.woff2") format("woff2");
+  src: url("../fonts/space-mono/SpaceMono-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Space Mono";
-  src: url("../fonts/space-mono/space-mono-italic.woff2") format("woff2");
+  src: url("../fonts/space-mono/SpaceMono-Italic.woff2") format("woff2");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Space Mono";
-  src: url("../fonts/space-mono/space-mono-bolditalic.woff2") format("woff2");
+  src: url("../fonts/space-mono/SpaceMono-BoldItalic.woff2") format("woff2");
   font-weight: 700;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Poppins";
-  src: url("../fonts/poppins/poppins-light.woff2") format("woff2");
+  src: url("../fonts/poppins/Poppins-Light.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -111,6 +111,101 @@
     gap: 1rem;
   }
 }
+.modal-contact-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+
+.modal-contact {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  background: #fff;
+  border: 5px solid #000000;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header-image {
+  background: url("../img/modal-bg.png") center top no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 105px;
+  margin-bottom: 2rem;
+}
+
+.modal-form-container {
+  width: 265px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.modal-form-container input,
+.modal-form-container textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border: 1px solid #D8D8D8;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+.modal-close:hover {
+  background-color: #C4C4C4;
+}
+
+.modal-form-container label {
+  display: block;
+  font-family: "Space Mono", monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #313144;
+  margin-bottom: 0.25rem;
+}
+
+.modal-form-container input[type=submit] {
+  background-color: #D8D8D8;
+  color: #000000;
+  font-family: "Space Mono", monospace;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100% !important;
+}
+.modal-form-container input[type=submit]:hover {
+  background-color: #C4C4C4;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
