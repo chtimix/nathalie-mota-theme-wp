@@ -24,3 +24,5 @@ function nathaliemota_register_menus() {
 }
 add_action('after_setup_theme', 'nathaliemota_register_menus');
 
+// Création du CPT "photo" et des taxonomies "catégories" et "format" 
+require_once get_template_directory() . '/inc/cpt-photo.php';
