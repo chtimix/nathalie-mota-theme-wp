@@ -1,0 +1,60 @@
+@use 'variables' as *;
+.site-header {
+    background-color: $white;
+    box-shadow: 0 30px 30px -30px $gray-light;
+  
+    .container {
+      max-width: 1148px;
+      margin: 0 auto;
+      padding: 1.875rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  
+    .logo img {
+      width: 216px;
+      height: 14px;
+      object-fit: contain;
+      display: block;
+    }
+  
+    .main-navigation .menu {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+  
+      li a {
+        font-family: 'Space Mono', monospace;
+        font-weight: 400;
+        font-size: 1rem;
+        text-transform: uppercase;
+        color: $black;
+        text-decoration: none;
+        transition: all 0.3s ease;
+  
+        &:hover,
+        &:focus {
+          font-weight: 700;
+          color: $black;
+        }
+      }
+    }
+  }
+  
+  // Responsive
+  @media (max-width: 768px) {
+    .site-header .container {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+  
+    .main-navigation .menu {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+  }

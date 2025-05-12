@@ -1,5 +1,9 @@
-@use 'fonts'; 
 @use 'variables' as *;
+@use 'fonts';
+@use 'header';
+@use 'footer'; 
+
+
 body {
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
@@ -8,5 +12,10 @@ body {
   h1, h2, h3 {
     font-family: 'Space Mono', monospace;
   }
+
+
+
+
+
 
 
