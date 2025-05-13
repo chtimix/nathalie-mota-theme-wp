@@ -19,7 +19,8 @@ add_theme_support('post-thumbnails');
 // Enregistrement du menu principal
 function nathaliemota_register_menus() {
     register_nav_menus([
-        'main_menu' => 'Menu principal',
+        'main_menu' => 'Menu du header',
+        'footer_menu' => 'Menu du footer',
     ]);
 }
 add_action('after_setup_theme', 'nathaliemota_register_menus');

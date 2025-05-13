@@ -1,9 +1,15 @@
 <footer class="site-footer">
     <div class="footer-container">
-        <a href="<?php echo esc_url(home_url('/mentions-legales')); ?>">Mentions légales</a>
-        <a href="<?php echo esc_url(home_url('/vie-privee')); ?>">Vie privée</a>
-        <span>Tous droits réservés</span>
-        <span><?= get_field('telephone','option'); ?></span>
+        <nav class="footer-navigation">
+            <?php
+            wp_nav_menu([
+                'theme_location' => 'footer_menu',
+                'container' => false,
+                'menu_class' => 'footer-menu',
+            ]);
+            ?>
+            <!-- <span><?= get_field('telephone','option'); ?></span> -->
+        </nav>
     </div>
     <?php get_template_part('templates_part/modal-contact'); ?>
     <?php wp_footer(); ?>

@@ -1,6 +1,7 @@
 @use 'variables' as *;
 
 .modal-contact-overlay {
+    display:none;
     position: fixed;
     top: 0;
     left: 0;
@@ -8,52 +9,20 @@
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.6);
     z-index: 1000;
-  }
-  
-  .modal-contact {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 600px;
-    background: #fff;
-    border: 5px solid $black;
-    padding-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-height: 90vh;
-    overflow-y: auto;
-  }
-  
-  .modal-header-image {
-    background: url('../img/modal-bg.png') center top no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 105px;
-    margin-bottom: 2rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    &.visible {
+      display: block;
+    }
+    &.active {
+      opacity: 1;
+    }
   }
 
-.modal-form-container {
-  width: 265px;
-  margin-left: auto;
-  margin-right: auto;
-
-  input,
-  textarea {
-    width: 100%;
-    margin-bottom: 1rem;
-    padding: 0.75rem;
-    border: 1px solid $gray-medium;
-    border-radius: 5px;
-    font-family: 'Poppins', sans-serif;
-  }
-}
-
-.modal-close {
+  .modal-close {
     position: absolute;
-    top: 10px;
-    right: 15px;
+    top: -20px;
+    right: -19px;
     background-color: $black;
     color: $white;
     border: none;
@@ -66,12 +35,50 @@
     align-items: center;
     cursor: pointer;
     z-index: 10;
-    transition: background-color 0.3s ease;
-  
-    &:hover {
-      background-color: $gray-dark;
-    }
   }
+
+  .modal-contact {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 600px;
+    background: #fff;
+    border: 5px solid $black;
+    padding-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 90vh;
+    //overflow-y: auto;
+  }
+
+  .modal-header-image {
+    background: url('../img/modal-bg.png') center top no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 105px;
+    margin-bottom: 1.75rem;
+  }
+
+.modal-form-container {
+  width: 265px;
+  margin-left: auto;
+  margin-right: auto;
+
+  input,
+  textarea {
+    margin-top:0.25rem;
+    margin-bottom: 0.25rem;
+    padding: 0.5rem;
+    border: 1px solid $gray-medium;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    width:265px;
+  }
+}
+
+
 
   .modal-form-container label {
     display: block;
@@ -79,10 +86,10 @@
     font-size: 0.75rem; // 12px
     text-transform: uppercase;
     color: $blue-dark;
-    margin-bottom: 0.25rem;
   }
 
   .modal-form-container input[type="submit"] {
+    width:283px;
     background-color: $gray-medium;
     color: $black;
     font-family: 'Space Mono', monospace;
@@ -91,9 +98,9 @@
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 100% !important;
   
     &:hover {
       background-color: $gray-dark;
     }
   }
+  
