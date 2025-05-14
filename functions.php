@@ -3,7 +3,8 @@
 // Chargement des fichiers CSS et JS
 function nathaliemota_enqueue_assets() {
     wp_enqueue_style('nathaliemota-style', get_template_directory_uri() . '/assets/css/style.css', [], '1.0');
-    wp_enqueue_script('nathaliemota-scripts', get_template_directory_uri() . '/js/scripts.js', [], '1.0', true);
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('nathaliemota-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0', true);
   }
   add_action('wp_enqueue_scripts', 'nathaliemota_enqueue_assets');
 

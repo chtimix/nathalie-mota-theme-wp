@@ -3,7 +3,7 @@
     background-color: $white;
     box-shadow: 0 30px 30px -30px $gray-light;
   
-    .container {
+    .header-container {
       max-width: 1148px;
       margin: 0 auto;
       padding: 1.875rem 4rem;
@@ -46,7 +46,7 @@
   
   // Responsive
   @media (max-width: 768px) {
-    .site-header .container {
+    .site-header .header-container {
       flex-direction: column;
       align-items: flex-start;
       gap: 1rem;

@@ -26,3 +26,27 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
   
+  // Affichage de la photo miniature dans la navigation single-photo.php
+  jQuery(document).ready(function ($) {
+    const $photoPreview = $('.photo-preview');
+    const originalImg = $photoPreview.data('current-thumbnail');
+  
+    // Injection initiale de l'image courante
+    $photoPreview.html(`<img src="${originalImg}" alt="Prévisualisation photo courante">`);
+  
+    $('.nav-link').on('mouseenter', function () {
+      const thumbnailUrl = $(this).data('thumbnail');
+  
+      if (thumbnailUrl) {
+        $photoPreview.find('img').stop(true, true).fadeOut(100, function () {
+          $(this).attr('src', thumbnailUrl).fadeIn(150);
+        });
+      }
+    });
+  
+    $('.nav-link').on('mouseleave', function () {
+      $photoPreview.find('img').stop(true, true).fadeOut(100, function () {
+        $(this).attr('src', originalImg).fadeIn(150);
+      });
+    });
+  });

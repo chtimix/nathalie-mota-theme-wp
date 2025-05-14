@@ -9,12 +9,11 @@
 <body <?php body_class(); ?>>
 
 <header class="site-header">
-    <div class="container">
+    <div class="header-container">
         <div class="logo">
             <?php 
             $logo = get_field('logo', 'option');
-        
-             ?>
+            ?>
             <a href="<?php echo esc_url(home_url('/')); ?>">
                 <img src="<?php echo $logo['url']; ?>" alt="<?php bloginfo('name'); ?>">
             </a>
