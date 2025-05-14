@@ -28,7 +28,7 @@ add_action('after_setup_theme', 'nathaliemota_register_menus');
 // Création du CPT "photo" et des taxonomies "catégories" et "format" 
 require_once get_template_directory() . '/inc/cpt-photo.php';
 
-//
+// ACF
 add_action('acf/init', function(){
 	\acf_add_options_sub_page([
 		'page_title'=> 'Developper settings',
@@ -38,7 +38,7 @@ add_action('acf/init', function(){
 
 });
 
-//
+
 /**
  * Save and load ACF fields from JSON
  */
