@@ -1,32 +1,41 @@
-// Ouverture et fermeture PopUp Contact
+/* *
+ * Ouverture et fermeture PopUp Contact
+ * */
 document.addEventListener('DOMContentLoaded', function () {
-    const modal = document.querySelector('.modal-contact-overlay');
-    const closeBtn = document.querySelector('.modal-close');
-    const openBtn = document.querySelectorAll('.open-modal-contact');
-  
-    openBtn.forEach(btn =>
-      btn.addEventListener('click', function (e) {
-        e.preventDefault();
-        modal.classList.add('visible'); // affichage immédiat
-        requestAnimationFrame(() => { // petite pause pour permettre à l'affichage de s'effectuer
-          modal.classList.add('active'); // déclenche le fondu CSS
-          document.body.style.overflow = 'hidden';
-        });
-      })
-    );
-  
-    closeBtn.addEventListener('click', () => {
-      modal.classList.remove('active'); // démarre le fade-out
-      document.body.style.overflow = 'auto';
-  
-      // attendre la fin de la transition avant de cacher
-      setTimeout(() => {
-        modal.classList.remove('visible'); // repasse display: none
-      }, 300); // même durée que la transition CSS
+  const modal = document.querySelector('.modal-contact-overlay');
+  const closeBtn = document.querySelector('.modal-close');
+  const openBtns = document.querySelectorAll('.open-modal-contact');
+
+  openBtns.forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      const ref = this.getAttribute('data-ref');
+      const photoRefInput = document.querySelector('#photo-ref');
+
+      // Récupère la référence de la photo
+      photoRefInput.value = ref;
+      
+      // Ouvre la modale
+      modal.classList.add('visible');
+      requestAnimationFrame(() => {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
     });
   });
+
+  closeBtn.addEventListener('click', () => {
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+    setTimeout(() => {
+      modal.classList.remove('visible');
+    }, 300);
+  });
+});
   
-  // Affichage de la photo miniature dans la navigation single-photo.php
+/* *
+ * Affichage de la photo miniature dans single-photo.php
+ * */
   jQuery(document).ready(function ($) {
     const $photoPreview = $('.photo-preview');
     const originalImg = $photoPreview.data('current-thumbnail');

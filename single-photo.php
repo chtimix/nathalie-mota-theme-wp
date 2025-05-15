@@ -18,7 +18,7 @@ if (have_posts()) :
 <main class=" single-photo site-wrapper">
 
     <!-- Zone principale : bloc infos photo + bloc photo -->
-    <section class="photo-content single-container">
+    <section class="photo-content">
 
         <!-- Bloc gauche : infos photo -->
         <div class="photo-infos">
