@@ -8,6 +8,7 @@ html, body {
   .site-wrapper {
     max-width: 1148px;
     margin: 0 auto;
+    padding: 0 2rem;
     box-sizing: border-box;
   }
 
@@ -23,4 +24,3 @@ html, body {
   button:focus {
     color: $red-primary;
   }
-  
