@@ -15,7 +15,7 @@ if (have_posts()) :
     $image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
 ?>
 
-<main class="single-photo">
+<main class=" single-photo site-wrapper">
 
     <!-- Zone principale : bloc infos photo + bloc photo -->
     <section class="photo-content single-container">

@@ -4,12 +4,10 @@
     box-shadow: 0 30px 30px -30px $gray-light;
   
     .header-container {
-      max-width: 1148px;
-      margin: 0 auto;
-      padding: 1.875rem 4rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 1.875rem 0;
     }
   
     .logo img {

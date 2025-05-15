@@ -1,5 +1,5 @@
 <footer class="site-footer">
-    <div class="footer-container">
+    <div class="site-wrapper">
         <nav class="footer-navigation">
             <?php
             wp_nav_menu([

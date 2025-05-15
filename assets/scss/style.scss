@@ -1,20 +1,13 @@
 @use 'variables' as *;
 @use 'fonts';
+@use 'base';
 @use 'header';
 @use 'footer'; 
 @use 'modal';
 @use 'single-photo';
 @use 'photo-bloc';
 
-
-body {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 300;
-  }
-  
-  h1, h2, h3 {
-    font-family: 'Space Mono', monospace;
-  }
+ 
 
 
 

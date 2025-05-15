@@ -26,17 +26,40 @@
   font-style: normal;
   font-display: swap;
 }
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.site-wrapper {
+  max-width: 1148px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Space Mono", monospace;
+  text-transform: uppercase;
+  margin-top: 0;
+}
+
+a:focus,
+button:focus {
+  color: #E00000;
+}
+
 .site-header {
   background-color: #ffffff;
   box-shadow: 0 30px 30px -30px #E5E5E5;
 }
 .site-header .header-container {
-  max-width: 1148px;
-  margin: 0 auto;
-  padding: 1.875rem 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1.875rem 0;
 }
 .site-header .logo img {
   width: 216px;
@@ -80,10 +103,6 @@
 .site-footer {
   border-top: 1px solid #000000;
   padding: 0.9375rem 1rem 1.25rem;
-}
-.site-footer .footer-container {
-  max-width: 1148px;
-  margin: 0 auto;
 }
 .site-footer .footer-navigation .footer-menu {
   display: flex;
@@ -218,34 +237,33 @@
   flex-direction: column;
   font-family: "Space Mono", monospace;
 }
-.single-photo .single-container, .single-photo .related-photos, .single-photo .photo-footer, .single-photo .photo-content {
-  width: 100%;
-  max-width: 1148px;
-  margin: 0 auto;
-  padding: 0;
-  box-sizing: border-box;
+.single-photo .photo-content,
+.single-photo .photo-footer {
+  display: flex;
+  flex-direction: row;
+  gap: 1.25rem;
 }
 .single-photo .photo-content {
-  display: flex;
-  align-items: flex-end;
+  padding-top: 2.5rem;
 }
 .single-photo .photo-content .photo-infos,
 .single-photo .photo-content .photo-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   width: 50%;
 }
 .single-photo .photo-content .photo-infos {
-  display: flex;
-  flex-direction: column;
-  border-bottom: 1px solid #000;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #000000;
 }
 .single-photo .photo-content .photo-infos h1 {
-  width: 50%;
+  width: 70%;
   font-size: 4.125rem;
   line-height: 3.625rem;
   font-style: italic;
   font-weight: 400;
-  margin-bottom: 2rem;
-  text-transform: uppercase;
+  margin-bottom: 1.25rem;
 }
 .single-photo .photo-content .photo-infos ul {
   list-style: none;
@@ -253,11 +271,11 @@
   margin: 0;
 }
 .single-photo .photo-content .photo-infos ul li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.25rem;
   font-size: 0.875rem;
   font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 10%;
+  letter-spacing: 0.1rem;
 }
 .single-photo .photo-content .photo-image img {
   width: 100%;
@@ -270,13 +288,14 @@
   justify-content: space-between;
   align-items: center;
   height: 118px;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #000000;
 }
 .single-photo .photo-footer .photo-contact {
   display: flex;
   width: 50%;
 }
 .single-photo .photo-footer .photo-contact p {
+  font-family: "Poppins", sans-serif;
   font-size: 0.75rem;
 }
 .single-photo .photo-footer .photo-contact button {
@@ -296,13 +315,13 @@
 .single-photo .photo-footer .photo-navigation {
   width: 50%;
   display: flex;
-  flex-direction: raw;
+  flex-direction: row;
   justify-content: right;
 }
 .single-photo .photo-footer .photo-navigation .photo-preview {
   width: 80px;
   height: 70px;
-  border: 1px solid #000;
+  border: 1px solid #000000;
 }
 .single-photo .photo-footer .photo-navigation .photo-preview img {
   width: 100%;
@@ -317,18 +336,21 @@
 .single-photo .photo-footer .photo-navigation .nav-link {
   text-decoration: none;
 }
+.single-photo .related-photos {
+  padding: 5rem 0;
+}
 .single-photo .related-photos h2 {
-  font-family: "Space Mono", monospace;
   font-size: 1.25rem;
   font-weight: 400;
   letter-spacing: 0.05em;
   margin-bottom: 2rem;
-  text-transform: none;
+  letter-spacing: 0.1rem;
 }
 .single-photo .related-photos .related-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2rem;
+  gap: 1.25rem;
+  padding-top: 3.75rem;
 }
 
 @media (max-width: 768px) {
@@ -352,13 +374,14 @@
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  aspect-ratio: 1.14/1;
 }
 .photo-bloc img {
-  display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
   transition: filter 0.3s ease;
+  display: block;
 }
 .photo-bloc:hover img {
   filter: brightness(0.6);
@@ -368,7 +391,6 @@
   inset: 0;
   opacity: 0;
   transition: opacity 0.3s ease;
-  display: block;
   z-index: 1;
 }
 .photo-bloc .photo-hover .eye-icon {
@@ -399,7 +421,7 @@
   font-size: 14px;
   text-transform: uppercase;
   font-weight: 400;
-  color: white;
+  color: #ffffff;
   letter-spacing: 0.05em;
   position: absolute;
 }
@@ -413,13 +435,4 @@
 }
 .photo-bloc:hover .photo-hover {
   opacity: 1;
-}
-
-body {
-  font-family: "Poppins", sans-serif;
-  font-weight: 300;
-}
-
-h1, h2, h3 {
-  font-family: "Space Mono", monospace;
 }

@@ -1,8 +1,7 @@
 <?php
-
 // Chargement des fichiers CSS et JS
 function nathaliemota_enqueue_assets() {
-    wp_enqueue_style('nathaliemota-style', get_template_directory_uri() . '/assets/css/style.css', [], '1.0');
+    wp_enqueue_style('nathaliemota-style', get_template_directory_uri() . '/assets/css/style.css', [], filemtime(get_template_directory() . '/assets/css/style.css'));
     wp_enqueue_script('jquery');
     wp_enqueue_script('nathaliemota-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0', true);
   }
@@ -17,7 +16,7 @@ add_theme_support('title-tag');
 // Activation des images mises en avant
 add_theme_support('post-thumbnails');
 
-// Enregistrement du menu principal
+// Enregistrement des menus
 function nathaliemota_register_menus() {
     register_nav_menus([
         'main_menu' => 'Menu du header',

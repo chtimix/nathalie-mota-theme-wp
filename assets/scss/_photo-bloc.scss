@@ -1,77 +1,78 @@
+@use 'variables' as *;
 .photo-bloc {
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-  
-    img {
-      display: block;
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      transition: filter 0.3s ease;
-    }
-  
-    &:hover img {
-      filter: brightness(0.6);
-    }
-  
-    .photo-hover {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 1.14 / 1;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease;
+    display: block;
+  }
+
+  &:hover img {
+    filter: brightness(0.6);
+  }
+
+  .photo-hover {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+
+    .eye-icon {
       position: absolute;
-      inset: 0;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      display: block;
-      z-index: 1;
-  
-      .eye-icon {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-  
-        img {
-          width: 46px;
-          height: 32px;
-          object-fit: contain;
-          filter: drop-shadow(0 0 4px #000);
-        }
-      }
-  
-      .maximize-icon {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-  
-        img {
-          width: 16px;
-          height: 14px;
-          object-fit: contain;
-          filter: drop-shadow(0 0 4px #000);
-        }
-      }
-  
-      .photo-meta {
-        font-family: 'Space Mono', monospace;
-        font-size: 14px;
-        text-transform: uppercase;
-        font-weight: 400;
-        color: white;
-        letter-spacing: 0.05em;
-        position: absolute;
-  
-        &.title {
-          bottom: 10px;
-          left: 10px;
-        }
-  
-        &.category {
-          bottom: 10px;
-          right: 10px;
-        }
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      img {
+        width: 46px;
+        height: 32px;
+        object-fit: contain;
+        filter: drop-shadow(0 0 4px #000);
       }
     }
-  
-    &:hover .photo-hover {
-      opacity: 1;
+
+    .maximize-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+
+      img {
+        width: 16px;
+        height: 14px;
+        object-fit: contain;
+        filter: drop-shadow(0 0 4px #000);
+      }
+    }
+
+    .photo-meta {
+      font-family: $font-mono;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 400;
+      color: $white;
+      letter-spacing: 0.05em;
+      position: absolute;
+
+      &.title {
+        bottom: 10px;
+        left: 10px;
+      }
+
+      &.category {
+        bottom: 10px;
+        right: 10px;
+      }
     }
   }
+
+  &:hover .photo-hover {
+    opacity: 1;
+  }
+}

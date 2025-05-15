@@ -1,39 +1,38 @@
+@use 'variables' as *;
 .single-photo {
     display: flex;
     flex-direction: column;
-    font-family: 'Space Mono', monospace;
-  
-    .single-container {
-      width: 100%;
-      max-width: 1148px;
-      margin: 0 auto;
-      padding: 0;
-      box-sizing: border-box;
+    font-family: $font-mono;
+    
+    .photo-content, 
+    .photo-footer {
+        display: flex;
+        flex-direction: row;
+        gap: 1.25rem;
     }
-  
+
     .photo-content {
-      @extend .single-container;
-      display: flex;
-      align-items: flex-end;
-  
+      padding-top: 2.5rem;
+
       .photo-infos,
       .photo-image {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
         width: 50%;
       }
   
       .photo-infos {
-        display: flex;
-        flex-direction: column;
-        border-bottom: 1px solid #000;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid $black;
   
         h1 {
-          width: 50%;
-          font-size: 4.125rem;         // 66px
-          line-height: 3.625rem;       // 58px
+          width: 70%;
+          font-size: 4.125rem; // 66px
+          line-height: 3.625rem; // 58px
           font-style: italic;
           font-weight: 400;
-          margin-bottom: 2rem;
-          text-transform: uppercase;
+          margin-bottom: 1.25rem;
         }
   
         ul {
@@ -42,11 +41,11 @@
           margin: 0;
   
           li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 1.25rem;
             font-size: 0.875rem;       // 14px
             font-weight: 400;
             text-transform: uppercase;
-            letter-spacing: 10%;
+            letter-spacing: 0.10rem;
           }
         }
       }
@@ -62,24 +61,26 @@
     }
   
     .photo-footer {
-      @extend .single-container;
       display: flex;
       justify-content: space-between;
       align-items: center;
       height: 118px;
-      border-bottom: 1px solid #000;
+      border-bottom: 1px solid $black;
   
       .photo-contact {
         display: flex;
         width: 50%;
+
         p {
+          font-family: $font-body;
           font-size: 0.75rem;
         }
+
         button {
           background-color: #d8d8d8;
           border: none;
           padding: 0.5rem 1rem;
-          font-family: 'Space Mono', monospace;
+          font-family: $font-mono;
           font-size: 0.75rem;             // 12px
           font-weight: 400;
           text-transform: none;
@@ -94,13 +95,13 @@
       .photo-navigation {
         width: 50%;
         display:flex;
-        flex-direction: raw;
+        flex-direction: row;
         justify-content: right;
 
         .photo-preview {
             width: 80px;
             height: 70px;
-            border: 1px solid #000;
+            border: 1px solid $black;
           
             img {
               width: 100%;
@@ -122,21 +123,21 @@
     }
   
     .related-photos {
-      @extend .single-container;
+      padding: 5rem 0;
   
       h2 {
-        font-family: 'Space Mono', monospace;
         font-size: 1.25rem;           // 20px
         font-weight: 400;
         letter-spacing: 0.05em;
         margin-bottom: 2rem;
-        text-transform: none;
+        letter-spacing: 0.10rem;
       }
   
       .related-wrapper {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 2rem;
+        gap: 1.25rem;
+        padding-top: 3.75rem;
       }
     }
   }

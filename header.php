@@ -9,7 +9,7 @@
 <body <?php body_class(); ?>>
 
 <header class="site-header">
-    <div class="header-container">
+    <div class="site-wrapper header-container">
         <div class="logo">
             <?php 
             $logo = get_field('logo', 'option');
