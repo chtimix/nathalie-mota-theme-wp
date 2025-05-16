@@ -2,12 +2,14 @@
 .site-header {
     background-color: $white;
     box-shadow: 0 30px 30px -30px $gray-light;
+    position:relative;
+    z-index: 100;
   
     .header-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.875rem 0;
+      height: 85px;
     }
   
     .logo img {

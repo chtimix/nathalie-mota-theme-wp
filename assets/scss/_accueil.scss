@@ -1,0 +1,51 @@
+@use 'variables' as *;
+// Animation du titre
+@keyframes fadeIn {
+    0%   { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+.hero {
+    min-height: 100vh;
+    min-height: calc(100vh - 85px); /* Soustrait la hauteur du header */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+  
+    &-overlay {
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+  
+    &-title {
+      font-style: italic;
+      font-weight: 700;
+      font-size: 6rem; // 96px
+      text-align: center;
+      margin:0;
+      padding: 0;
+  
+      // Contour blanc
+      -webkit-text-stroke: 3px $white;
+      color: transparent;
+
+      // Animation
+      opacity: 0;
+      animation: fadeIn 1s ease-out 0.5s forwards; // durée 1s, délai 0.5s
+      
+      // Responsive
+      @media (max-width: 768px) {
+        font-size: 3rem;
+      }
+    }
+
+    
+  }
+
