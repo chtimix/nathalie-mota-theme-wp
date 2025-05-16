@@ -1,9 +1,5 @@
 @use 'variables' as *;
-// Animation du titre
-@keyframes fadeIn {
-    0%   { opacity: 0; transform: translateY(30px); }
-    100% { opacity: 1; transform: translateY(0); }
-  }
+
 .hero {
     min-height: 100vh;
     min-height: calc(100vh - 85px); /* Soustrait la hauteur du header */
@@ -36,16 +32,23 @@
       -webkit-text-stroke: 3px $white;
       color: transparent;
 
-      // Animation
       opacity: 0;
       animation: fadeIn 1s ease-out 0.5s forwards; // durée 1s, délai 0.5s
-      
-      // Responsive
-      @media (max-width: 768px) {
-        font-size: 3rem;
-      }
     }
 
-    
+    // Animation du titre
+    @keyframes fadeIn {
+    0%   { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+    }
   }
 
+.gallery {
+    padding: 4rem 2rem;
+  
+    &-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 1.25rem;
+    }
+  }

@@ -3,6 +3,7 @@
 get_header(); ?>
 
 <!-- Hero -->
+
 <?php
 $args = [
   'post_type'      => 'photo',
@@ -36,19 +37,21 @@ endif;
 
 <!-- Galerie Photos -->
 
-<section class="gallery" id="galerie">
+<section class="gallery site-wrapper" id="galerie">
   <div class="gallery-container">
     <?php
+    // Arguments de la requête WP_Query
     $args = [
       'post_type'      => 'photo',
-      'posts_per_page' => 12, // pagination prévue plus tard
+      'posts_per_page' => 8,
       'paged'          => get_query_var('paged') ?: 1
     ];
     $photos = new WP_Query($args);
 
+    // Boucle
     if ($photos->have_posts()) :
       while ($photos->have_posts()) : $photos->the_post();
-        get_template_part('templates-part/photo-bloc');
+        get_template_part('templates_part/photo-bloc');
       endwhile;
       wp_reset_postdata();
     else :
@@ -57,5 +60,7 @@ endif;
     ?>
   </div>
 </section>
+
+<!-- Footer -->
 
 <?php get_footer(); ?>
