@@ -47,7 +47,7 @@ if (have_posts()) :
         <div class="photo-contact">
             <p>Cette photo vous intéresse ?</p>
             <button 
-                class="open-modal-contact" 
+                class="open-modal-contact button-base" 
                 data-ref="<?= esc_attr($reference); ?>"
             >Contact</button>
         </div>

@@ -59,6 +59,12 @@ endif;
     endif;
     ?>
   </div>
+
+  <!-- Bouton Charger plus -->
+   
+    <div class="load-more-wrapper">
+        <button class="button-base">Charger plus</button>
+    </div>
 </section>
 
 <!-- Footer -->
