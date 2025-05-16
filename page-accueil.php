@@ -38,30 +38,78 @@ endif;
 <!-- Galerie Photos -->
 
 <section class="gallery site-wrapper" id="galerie">
-  <div class="gallery-container">
-    <?php
-    // Arguments de la requête WP_Query
-    $args = [
-      'post_type'      => 'photo',
-      'posts_per_page' => 8,
-      'paged'          => get_query_var('paged') ?: 1
-    ];
-    $photos = new WP_Query($args);
 
-    // Boucle
-    if ($photos->have_posts()) :
-      while ($photos->have_posts()) : $photos->the_post();
-        get_template_part('templates_part/photo-bloc');
-      endwhile;
-      wp_reset_postdata();
-    else :
-      echo '<p>Aucune photo trouvée.</p>';
-    endif;
-    ?>
-  </div>
+    <!-- Filtres -->
+
+    <section class="filters">
+    <div class="filters-container">
+        <div class="filters-left">
+        <!-- Menu Catégories -->
+        <div class="custom-select" data-name="categorie">
+            <div class="custom-select-trigger">Catégories</div>
+            <ul class="custom-options">
+                <li class="custom-option" data-value="">Réception</li>
+                <li class="custom-option" data-value="concert">Télévision</li>
+                <li class="custom-option" data-value="mode">Concert</li>
+                <li class="custom-option" data-value="evenement">Mariage</li>
+            <!-- Ces options seront injectées dynamiquement en PHP plus tard -->
+            </ul>
+        </div>
+
+        <!-- Menu Format -->
+        <div class="custom-select" data-name="format">
+            <div class="custom-select-trigger">Format</div>
+            <ul class="custom-options">
+            <li class="custom-option" data-value="">Tous les formats</li>
+            <li class="custom-option" data-value="paysage">Paysage</li>
+            <li class="custom-option" data-value="portrait">Portrait</li>
+            <!-- À injecter dynamiquement aussi -->
+            </ul>
+        </div>
+        </div>
+
+        <div class="filters-right">
+        <!-- Menu Trier par -->
+        <div class="custom-select" data-name="order">
+            <div class="custom-select-trigger">Trier par</div>
+            <ul class="custom-options">
+            <li class="custom-option" data-value="date_desc">Date (plus récentes)</li>
+            <li class="custom-option" data-value="date_asc">Date (plus anciennes)</li>
+            <li class="custom-option" data-value="title_asc">Titre (A–Z)</li>
+            <li class="custom-option" data-value="title_desc">Titre (Z–A)</li>
+            <li class="custom-option" data-value="rand">Aléatoire</li>
+            </ul>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Photos -->
+
+    <div class="gallery-container">
+        <?php
+        // Arguments de la requête WP_Query
+        $args = [
+        'post_type'      => 'photo',
+        'posts_per_page' => 8,
+        'paged'          => get_query_var('paged') ?: 1
+        ];
+        $photos = new WP_Query($args);
+
+        // Boucle
+        if ($photos->have_posts()) :
+        while ($photos->have_posts()) : $photos->the_post();
+            get_template_part('templates_part/photo-bloc');
+        endwhile;
+        wp_reset_postdata();
+        else :
+        echo '<p>Aucune photo trouvée.</p>';
+        endif;
+        ?>
+    </div>
 
   <!-- Bouton Charger plus -->
-   
+
     <div class="load-more-wrapper">
         <button class="button-base">Charger plus</button>
     </div>

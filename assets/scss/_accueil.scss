@@ -44,7 +44,7 @@
   }
 
 .gallery {
-    padding: 2.5rem 2rem;
+    padding: 5rem 2rem 2.5rem 2rem;
   
     &-container {
       display: grid;
@@ -57,4 +57,110 @@
     display: flex;
     justify-content: center;
     margin-top: 2.5rem;
+}
+
+// Couleurs personnalisées
+$red-tertiary: #ffe5e5;
+$red-secondary: #ff6666;
+$red-primary:  #cc0000;
+
+// Keyframes survol et retour
+@keyframes redHoverFade {
+  0%   { background-color: $red-tertiary; }
+  50%  { background-color: $red-secondary; }
+  100% { background-color: $red-primary; }
+}
+
+@keyframes redHoverReverse {
+  0%   { background-color: $red-primary; }
+  50%  { background-color: $red-secondary; }
+  100% { background-color: $white; }
+}
+
+.filters {
+  padding-bottom: 2.5rem;
+
+  &-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  &-left {
+    display: flex;
+    gap: 30px;
+  }
+
+  &-right {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.custom-select {
+  width: 260px;
+  box-sizing: border-box;
+  position: relative;
+  font-family: $font-body;
+  font-size: 0.75rem;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  user-select: none;
+  color: $blue-dark;
+  cursor: pointer;
+
+  &-trigger {
+    background-color: $white;
+    border: 1px solid $gray-dark;
+    border-radius: 8px;
+    height: 43px;
+    line-height: 43px;
+    padding: 0 2.5rem 0 1rem;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .custom-options {
+    display: none;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    width: 100%;
+    background: $white;
+    z-index: 100;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  &.open .custom-options {
+    display: block;
+  }
+
+  .custom-option {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+
+    &:hover {
+      animation-name: redHoverFade;
+    }
+
+    &:not(:hover) {
+      animation-name: redHoverReverse;
+    }
+
+    &.selected {
+      font-weight: bold;
+      background-color: #eee;
+      animation: none;
+    }
+  }
 }
