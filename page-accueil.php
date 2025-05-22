@@ -101,17 +101,17 @@ endif;
       // Arguments de la requête WP_Query
       $photo_args = [
         'post_type'      => 'photo',
-        'posts_per_page' => 6, // On affiche 6 photos au départ
-        'paged'          => get_query_var('paged') ?: 1
+        'posts_per_page' => 6, // Affiche 6 photos max par “page”
+        'paged'          => get_query_var('paged') ?: 1 // Permet la pagination. Si aucune variable paged n’est définie dans l’URL, on prend la page 1
       ];
       $photo_query = new WP_Query($photo_args);
 
       // Boucle affichage photos
-      if ($photo_query->have_posts()) :
-        while ($photo_query->have_posts()) : $photo_query->the_post();
+      if ($photo_query->have_posts()) : // Vérifie s’il y a des résultats à afficher 
+        while ($photo_query->have_posts()) : $photo_query->the_post(); // the_post() prépare le post courant (accès à the_title(), get_the_ID(), etc.)
           get_template_part('templates_part/photo-bloc');
         endwhile;
-        wp_reset_postdata();
+        wp_reset_postdata(); // Restaure la boucle WordPress globale (main loop) -> évite les bugs avec d’autres the_title(), the_permalink() etc. plus bas dans la page
         else :
           echo '<p>Aucune photo trouvée.</p>';
       endif;
@@ -121,11 +121,11 @@ endif;
   <!-- Bouton Charger plus -->
 
   <?php
-    $total_photos = wp_count_posts('photo')->publish;
-    $photos_per_page = 6; // Au clic, on affiche 6 photos supplémentaires
-    $current_page = 1;
+    $total_photos = wp_count_posts('photo')->publish; // Conte le nbre de CPT Photo avec le statut "publié".
+    $photos_per_page = 6; // Nbre de photo par page. À chaque clic, on affiche 6 photos supplémentaires
+    $current_page = 1; // Page actuelle définie à 1 (au chargement de la page d'accueil)
 
-    $max_pages = ceil($total_photos / $photos_per_page); // On compte le nombre maximum de pages
+    $max_pages = ceil($total_photos / $photos_per_page); // On compte le nombre maximum de pages, arrondi vers le haut avec ceil()
   ?>
 
   <?php if ($max_pages > 1) : ?>

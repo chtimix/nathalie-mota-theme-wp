@@ -5,13 +5,25 @@ function nathaliemota_enqueue_assets() {
     wp_enqueue_script('jquery');
     wp_enqueue_script('nathaliemota-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), filemtime(get_template_directory() . '/js/scripts.js'), true);
 	wp_enqueue_script('load-more-js', get_template_directory_uri() . '/js/load-more.js',[], null, true);
-	// Pour rendre ajaxurl accessible depuis le JS
-	wp_localize_script('load-more-js', 'ajaxurl', admin_url('admin-ajax.php'));
+	// Envoi de ajaxurl + nonce au JS
+	wp_localize_script('load-more-js', 'nathalie_ajax', [
+		'ajaxurl' => admin_url('admin-ajax.php'),
+		'nonce'   => wp_create_nonce('load_more_nonce'),
+	  ]);
   }
   add_action('wp_enqueue_scripts', 'nathaliemota_enqueue_assets');
 
 // Bouton "Charger plus" sur la page d'accueil
 function nathalie_load_more_photos() {
+	// Vérification du nonce
+	if (
+		!isset($_GET['nonce']) ||
+		!wp_verify_nonce($_GET['nonce'], 'load_more_nonce')
+	) {
+		wp_send_json_error('Requête non autorisée', 403);
+		wp_die();
+	}
+	
 	$paged = isset($_GET['page']) ? intval($_GET['page']) : 1;
   
 	$args = [
@@ -23,7 +35,7 @@ function nathalie_load_more_photos() {
 	$query = new WP_Query($args);
   
 	if ($query->have_posts()) {
-	  ob_start();
+	  ob_start(); // Permet de capturer tout le HTML généré par get_template_part() dans une chaîne, sans l’afficher tout de suite.
 	  while ($query->have_posts()) {
 		$query->the_post();
 		get_template_part('templates_part/photo-bloc');
@@ -34,7 +46,7 @@ function nathalie_load_more_photos() {
 	  echo '';
 	}
   
-	wp_die();
+	wp_die(); // Termine l’exécution sans charger le reste de WordPress (comme le footer, etc.).
 }
 add_action('wp_ajax_load_more_photos', 'nathalie_load_more_photos');
 add_action('wp_ajax_nopriv_load_more_photos', 'nathalie_load_more_photos');
