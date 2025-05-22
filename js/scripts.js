@@ -1,4 +1,36 @@
 /* *
+ * Ouverture / fermeture des menus
+ * */
+document.addEventListener('DOMContentLoaded', function () {
+  const customSelects = document.querySelectorAll('.custom-select');
+
+  customSelects.forEach(select => {
+    const trigger = select.querySelector('.custom-select-trigger');
+
+    trigger.addEventListener('click', function (e) {
+      e.stopPropagation();
+
+      // Si le menu est déjà ouvert, on le ferme
+      const isOpen = select.classList.contains('open');
+
+      // Ferme tous les autres menus
+      customSelects.forEach(s => s.classList.remove('open'));
+
+      // Si le menu cliqué n'était pas ouvert, on l’ouvre
+      if (!isOpen) {
+      select.classList.add('open');
+      }
+    });
+  });
+
+  // Ferme tous les menus si on clique ailleurs
+  document.addEventListener('click', function () {
+    customSelects.forEach(select => select.classList.remove('open'));
+  });
+});
+
+
+/* *
  * Ouverture et fermeture PopUp Contact
  * */
 document.addEventListener('DOMContentLoaded', function () {

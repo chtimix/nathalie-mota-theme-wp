@@ -44,6 +44,7 @@ endif;
 
   <section class="filters">
     <div class="filters-container">
+
       <div class="filters-left">
 
         <!-- Menu Catégories -->
@@ -51,13 +52,23 @@ endif;
           <div class="custom-select-trigger">
             Catégories
           </div>
+          <!-- Affichage dynamique des catégories -->
+          <?php
+          $terms = get_terms([
+          'taxonomy'   => 'categorie',
+          'hide_empty' => true, // n'affiche que les catégories utilisées
+          ]);
+
+          if (!empty($terms) && !is_wp_error($terms)) : ?>
           <ul class="custom-options">
-            <li class="custom-option" data-value="">Réception</li>
-            <li class="custom-option" data-value="concert">Télévision</li>
-            <li class="custom-option" data-value="mode">Concert</li>
-            <li class="custom-option" data-value="evenement">Mariage</li>
-            <!-- Ces options seront injectées dynamiquement en PHP plus tard -->
+            <li class="custom-option" data-value="">Toutes les catégories</li>
+            <?php foreach ($terms as $term) : ?>
+            <li class="custom-option" data-value="<?php echo esc_attr($term->slug); ?>">
+            <?php echo esc_html($term->name); ?>
+            </li>
+            <?php endforeach; ?>
           </ul>
+          <?php endif; ?>
         </div>
 
         <!-- Menu Format -->
@@ -65,12 +76,22 @@ endif;
           <div class="custom-select-trigger">
             Format
           </div>
+          <?php
+          $terms = get_terms([
+          'taxonomy'   => 'format',
+          'hide_empty' => true,
+          ]);
+
+          if (!empty($terms) && !is_wp_error($terms)) : ?>
           <ul class="custom-options">
             <li class="custom-option" data-value="">Tous les formats</li>
-            <li class="custom-option" data-value="paysage">Paysage</li>
-            <li class="custom-option" data-value="portrait">Portrait</li>
-            <!-- À injecter dynamiquement aussi -->
+            <?php foreach ($terms as $term) : ?>
+            <li class="custom-option" data-value="<?php echo esc_attr($term->slug); ?>">
+            <?php echo esc_html($term->name); ?>
+            </li>
+            <?php endforeach; ?>
           </ul>
+          <?php endif; ?>
         </div>
 
       </div>
@@ -85,8 +106,6 @@ endif;
           <ul class="custom-options">
             <li class="custom-option" data-value="date_desc">Date (plus récentes)</li>
             <li class="custom-option" data-value="date_asc">Date (plus anciennes)</li>
-            <li class="custom-option" data-value="title_asc">Titre (A–Z)</li>
-            <li class="custom-option" data-value="title_desc">Titre (Z–A)</li>
             <li class="custom-option" data-value="rand">Aléatoire</li>
           </ul>
         </div>

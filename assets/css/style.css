@@ -186,28 +186,6 @@ button:focus {
   margin-top: 2.5rem;
 }
 
-@keyframes redHoverFade {
-  0% {
-    background-color: #ffe5e5;
-  }
-  50% {
-    background-color: #ff6666;
-  }
-  100% {
-    background-color: #cc0000;
-  }
-}
-@keyframes redHoverReverse {
-  0% {
-    background-color: #cc0000;
-  }
-  50% {
-    background-color: #ff6666;
-  }
-  100% {
-    background-color: #ffffff;
-  }
-}
 .filters {
   padding-bottom: 2.5rem;
 }
@@ -252,17 +230,25 @@ button:focus {
   position: relative;
   overflow: hidden;
 }
+.custom-select.open .custom-select-trigger {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
 .custom-select .custom-options {
   display: none;
   position: absolute;
-  top: calc(100% + 5px);
+  top: calc(100% - 1px);
   left: 0;
   width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
   background: #ffffff;
   z-index: 100;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-height: 300px;
   overflow-y: auto;
+  border: 1px solid #C4C4C4;
+  border-radius: 0 0 8px 8px;
 }
 .custom-select.open .custom-options {
   display: block;
@@ -270,20 +256,16 @@ button:focus {
 .custom-select .custom-option {
   padding: 0.75rem 1rem;
   cursor: pointer;
-  animation-duration: 0.4s;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
+  background-color: #ffffff;
+  transition: background-color 0.5s ease;
 }
 .custom-select .custom-option:hover {
-  animation-name: redHoverFade;
-}
-.custom-select .custom-option:not(:hover) {
-  animation-name: redHoverReverse;
+  background-color: #E00000;
+  color: #ffffff;
 }
 .custom-select .custom-option.selected {
   font-weight: bold;
   background-color: #eee;
-  animation: none;
 }
 
 .site-footer {

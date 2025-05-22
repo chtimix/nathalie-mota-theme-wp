@@ -62,19 +62,6 @@
 
 // Filtres
 
-// Keyframes survol et retour
-@keyframes redHoverFade {
-  0%   { background-color: $red-tertiary; }
-  50%  { background-color: $red-secondary; }
-  100% { background-color: $red-primary; }
-}
-
-@keyframes redHoverReverse {
-  0%   { background-color: $red-primary; }
-  50%  { background-color: $red-secondary; }
-  100% { background-color: $white; }
-}
-
 .filters {
   padding-bottom: 2.5rem;
 
@@ -112,6 +99,11 @@
     background-color: $white;
     border: 1px solid $gray-dark;
     border-radius: 8px;
+    // Quand le menu est ouvert
+    .custom-select.open & {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
     height: 43px;
     line-height: 43px;
     padding: 0 2.5rem 0 1rem;
@@ -121,19 +113,24 @@
     background-size: 1rem;
     position: relative;
     overflow: hidden;
+
   }
 
   .custom-options {
     display: none;
     position: absolute;
-    top: calc(100% + 5px);
+    top: calc(100% - 1px);
     left: 0;
     width: 100%;
+    list-style: none;
+    margin:0;
+    padding:0;
     background: $white;
     z-index: 100;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-height: 300px;
     overflow-y: auto;
+    border: 1px solid $gray-dark;
+    border-radius: 0 0 8px 8px;
   }
 
   &.open .custom-options {
@@ -143,22 +140,17 @@
   .custom-option {
     padding: 0.75rem 1rem;
     cursor: pointer;
-    animation-duration: 0.4s;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-in-out;
-
+    background-color: $white;
+    transition: background-color 0.5s ease;
+  
     &:hover {
-      animation-name: redHoverFade;
+      background-color: $red-primary;
+      color: $white;
     }
-
-    &:not(:hover) {
-      animation-name: redHoverReverse;
-    }
-
+  
     &.selected {
       font-weight: bold;
       background-color: #eee;
-      animation: none;
     }
   }
 }

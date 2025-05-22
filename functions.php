@@ -13,7 +13,7 @@ function nathaliemota_enqueue_assets() {
   }
   add_action('wp_enqueue_scripts', 'nathaliemota_enqueue_assets');
 
-// Bouton "Charger plus" sur la page d'accueil
+// Requête "charger plus"
 function nathalie_load_more_photos() {
 	// Vérification du nonce
 	if (
@@ -23,7 +23,7 @@ function nathalie_load_more_photos() {
 		wp_send_json_error('Requête non autorisée', 403);
 		wp_die();
 	}
-	
+
 	$paged = isset($_GET['page']) ? intval($_GET['page']) : 1;
   
 	$args = [
