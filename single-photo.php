@@ -2,10 +2,6 @@
 // Fichier : single-photo.php
 get_header();
 
-// On vérifie qu'on est bien sur un post
-if (have_posts()) :
-    while (have_posts()) : the_post();
-
     // Récupération des champs ACF et taxonomies
     $reference = get_field('reference');
     $type = get_field('type');
@@ -110,7 +106,5 @@ if (have_posts()) :
 </main>
 
 <?php
-    endwhile;
-endif;
 
 get_footer();

@@ -1,5 +1,5 @@
 @use 'variables' as *;
-
+// Hero
 .hero {
     min-height: 100vh;
     min-height: calc(100vh - 85px); /* Soustrait la hauteur du header */
@@ -43,6 +43,7 @@
     }
   }
 
+// Galerie
 .gallery {
     padding: 5rem 2rem 2.5rem 2rem;
   
@@ -59,10 +60,7 @@
     margin-top: 2.5rem;
 }
 
-// Couleurs personnalisées
-$red-tertiary: #ffe5e5;
-$red-secondary: #ff6666;
-$red-primary:  #cc0000;
+// Filtres
 
 // Keyframes survol et retour
 @keyframes redHoverFade {
@@ -99,7 +97,7 @@ $red-primary:  #cc0000;
 }
 
 .custom-select {
-  width: 260px;
+  width: 245px;
   box-sizing: border-box;
   position: relative;
   font-family: $font-body;

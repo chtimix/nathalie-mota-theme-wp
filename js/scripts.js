@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // Récupère la référence de la photo
       photoRefInput.value = ref;
-      
+      photoRefInput.disabled = true;
       // Ouvre la modale
       modal.classList.add('visible');
       requestAnimationFrame(() => {
