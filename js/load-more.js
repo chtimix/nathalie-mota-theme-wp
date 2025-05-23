@@ -1,41 +1,57 @@
 // Script pour le bouton "Charger plus" dans la galerie : écoute du clic et appel Ajax
 document.addEventListener('DOMContentLoaded', function () {
-    const loadMoreBtn = document.getElementById('load-more');
-  
-    if (!loadMoreBtn) return; // le script s'arrête si le bouton n'est pas affiché (toutes les photos sont affichées)
-  
-    loadMoreBtn.addEventListener('click', function () {
-      const button = this;
-      // On récupèrer des données HTML (data-*) stockées dans le bouton “Charger plus” et on les convertit en nombres entiers utilisables en JavaScript.
-      const currentPage = parseInt(button.dataset.page); // "page" actuellement chargée
-      const maxPage = parseInt(button.dataset['maxPage']); // Note : les attributs data-xxx-yyy deviennent dataset.xxxYyy en camelCase automatiquement.
-      const nextPage = currentPage + 1; // page qu'on veut charger maintenant
-  
-      button.disabled = true; // On désactive le bouton pour éviter les doubles clics.
-      button.textContent = 'Chargement...'; // On change le texte pour indiquer qu’un chargement est en cours.
+  const galleryContainer = document.querySelector('.gallery-container');
+  const gallerySection = document.querySelector('.gallery');
 
-      // Envoi de la requête Ajax (GET) avec Fetch API
-      fetch(`${nathalie_ajax.ajaxurl}?action=load_more_photos&page=${nextPage}&nonce=${nathalie_ajax.nonce}`, { // déclenche le hook wp_ajax_load_more_photos avec la page souhaitée
-        method: 'GET', // On envoie les paramètres dans l’URL
-        credentials: 'same-origin', // cookies de session 
-      })
-        .then(response => response.text()) // Traite la réponse HTML générée par PHP
-        .then(data => {
-          const container = document.querySelector('.gallery-container');
-          container.insertAdjacentHTML('beforeend', data); // Injection du html dans le DOM à la fin du container
-  
-          button.dataset.page = nextPage;
-          button.disabled = false;
-          button.textContent = 'Charger plus';
-  
-          if (nextPage >= maxPage) {
-            button.style.display = 'none';
-          }
-        })
-        .catch(error => {
-          console.error('Erreur lors du chargement :', error);
-          button.disabled = false;
-          button.textContent = 'Charger plus';
-        });
+  // Écoute le bouton "Charger plus"
+  document.addEventListener('click', function (e) {
+    const loadMoreBtn = e.target.closest('#load-more');
+    if (!loadMoreBtn) return;
+
+    const currentPage = parseInt(loadMoreBtn.dataset.page);
+    const maxPage = parseInt(loadMoreBtn.dataset.maxPage);
+    const nextPage = currentPage + 1;
+
+    // Filtres actifs (stockés dans data-filters du container)
+    let filters = {};
+    if (gallerySection?.dataset.filters) {
+      try {
+        filters = JSON.parse(gallerySection.dataset.filters);
+      } catch (err) {
+        console.warn('Erreur parsing des filtres :', err);
+      }
+    }
+
+    loadMoreBtn.disabled = true;
+    loadMoreBtn.textContent = 'Chargement...';
+
+    // Construction de l’URL
+    const url = new URL(nathalie_ajax.ajaxurl);
+    url.searchParams.set('action', 'load_more_photos');
+    url.searchParams.set('nonce', nathalie_ajax.nonce);
+    url.searchParams.set('page', nextPage);
+
+    // Ajout des filtres actifs
+    Object.entries(filters).forEach(([key, value]) => {
+      url.searchParams.set(key, value);
     });
+
+    fetch(url.toString())
+      .then(response => response.text())
+      .then(data => {
+        galleryContainer.insertAdjacentHTML('beforeend', data);
+        loadMoreBtn.dataset.page = nextPage;
+        loadMoreBtn.disabled = false;
+        loadMoreBtn.textContent = 'Charger plus';
+
+        if (nextPage >= maxPage) {
+          loadMoreBtn.style.display = 'none';
+        }
+      })
+      .catch(error => {
+        console.error('Erreur lors du chargement :', error);
+        loadMoreBtn.disabled = false;
+        loadMoreBtn.textContent = 'Charger plus';
+      });
   });
+});

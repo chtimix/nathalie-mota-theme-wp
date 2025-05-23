@@ -106,7 +106,6 @@ endif;
           <ul class="custom-options">
             <li class="custom-option" data-value="date_desc">Date (plus récentes)</li>
             <li class="custom-option" data-value="date_asc">Date (plus anciennes)</li>
-            <li class="custom-option" data-value="rand">Aléatoire</li>
           </ul>
         </div>
       </div>
