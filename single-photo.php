@@ -64,12 +64,12 @@ get_header();
                     ?>
                     <?php if ($prev_post): ?>
                         <div class="photo-navigation-arrow-left">
-                            <a href="<?= get_permalink($prev_post->ID); ?>" class="nav-link prev-photo" data-thumbnail="<?= get_the_post_thumbnail_url($prev_post->ID, 'thumbnail'); ?>"><img src="<?= esc_url($left_arrow_icon); ?>" alt="Flèche gauche"></a>
+                            <a href="<?= get_permalink($prev_post->ID); ?>" class="nav-link prev-photo" data-thumbnail="<?= get_the_post_thumbnail_url($prev_post->ID, 'thumbnail'); ?>"><img src="<?= esc_url($left_arrow_icon); ?>" alt="Photo précédente"></a>
                         </div>
                     <?php endif; ?>
                     <?php if ($next_post): ?>
                         <div class="photo-navigation-arrow-right">
-                            <a href="<?= get_permalink($next_post->ID); ?>" class="nav-link next-photo" data-thumbnail="<?= get_the_post_thumbnail_url($next_post->ID, 'thumbnail'); ?>"><img src="<?= esc_url($right_arrow_icon); ?>"></a>
+                            <a href="<?= get_permalink($next_post->ID); ?>" class="nav-link next-photo" data-thumbnail="<?= get_the_post_thumbnail_url($next_post->ID, 'thumbnail'); ?>"><img src="<?= esc_url($right_arrow_icon); ?>" alt="Photo suivante"></a>
                         </div>
                     <?php endif; ?>
                 </div>

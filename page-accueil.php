@@ -47,7 +47,7 @@ endif;
 
       <div class="filters-left">
 
-        <!-- Menu Catégories -->
+        <!-- Filtres Catégories -->
         <div class="custom-select" data-name="categorie">
           <div class="custom-select-trigger">
             Catégories
@@ -71,7 +71,7 @@ endif;
           <?php endif; ?>
         </div>
 
-        <!-- Menu Format -->
+        <!-- Filtre Format -->
         <div class="custom-select" data-name="format">
           <div class="custom-select-trigger">
             Format
@@ -98,7 +98,7 @@ endif;
 
       <div class="filters-right">
 
-        <!-- Menu Trier par -->
+        <!-- Filtre Trier par -->
         <div class="custom-select" data-name="order">
           <div class="custom-select-trigger">
             Trier par
@@ -139,7 +139,7 @@ endif;
   <!-- Bouton Charger plus -->
 
   <?php
-    $total_photos = wp_count_posts('photo')->publish; // Conte le nbre de CPT Photo avec le statut "publié".
+    $total_photos = wp_count_posts('photo')->publish; // Compte le nbre de CPT Photo avec le statut "publié".
     $photos_per_page = 6; // Nbre de photo par page. À chaque clic, on affiche 6 photos supplémentaires
     $current_page = 1; // Page actuelle définie à 1 (au chargement de la page d'accueil)
 
