@@ -14,7 +14,6 @@ function nathaliemota_enqueue_assets() {
 	  'main.js',
 	  'gallery.js',
 	  'modal-contact.js',
-	  //'lightbox.js',
 	];
   
 	foreach ($scripts as $script) {

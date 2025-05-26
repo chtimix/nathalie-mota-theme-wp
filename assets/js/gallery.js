@@ -10,7 +10,7 @@
  * - Les appels à l’API REST personnalisée WordPress
  *
  * Fonctionnalités :
- * - Ouverture/fermeture des menus custom de filtre
+ * - Ouverture/fermeture des menus custom
  * - Sélection des filtres et mise à jour dynamique de la galerie
  * - Requête REST dynamique avec fetch()
  * - Insertion du HTML retourné

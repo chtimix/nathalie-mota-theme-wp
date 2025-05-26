@@ -127,7 +127,7 @@ endif;
       // Boucle affichage photos
       if ($photo_query->have_posts()) : // Vérifie s’il y a des résultats à afficher 
         while ($photo_query->have_posts()) : $photo_query->the_post(); // the_post() prépare le post courant (accès à the_title(), get_the_ID(), etc.)
-          get_template_part('template_parts/photo-bloc');
+          get_template_part('templates_part/photo-bloc');
         endwhile;
         wp_reset_postdata(); // Restaure la boucle WordPress globale (main loop) -> évite les bugs avec d’autres the_title(), the_permalink() etc. plus bas dans la page
         else :

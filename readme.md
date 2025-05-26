@@ -29,15 +29,15 @@ wp-content/
         │   │   └── style.scss (source sass)
         │   ├── js/
         │   │   ├── main.js
-        │   │   ├── gallery.js
+        │   │   ├── filters.js
+        │   │   ├── load-more.js
         │   │   ├── modal-contact.js
         │   │   ├── lightbox.js
         │   │   └── photo-preview.js
         ├── inc/
         │   ├── cpt-photo.php
         │   └── rest-api.php
-        ├── template_parts/
-        │   └── lightbox.php
+        ├── templates_part/
         │   └── photo-bloc.php
         ├── functions.php
         ├── style.css
