@@ -602,6 +602,7 @@ h3 {
   max-width: 90%;
   max-height: 90%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -615,6 +616,13 @@ h3 {
   background: none;
   border: none;
   cursor: pointer;
+}
+
+.lightbox-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
 }
 
 .lightbox-prev,
@@ -635,14 +643,12 @@ h3 {
 }
 
 .lightbox-prev {
-  position: absolute;
   left: 1rem;
   top: 50%;
   transform: translateY(-50%);
 }
 
 .lightbox-next {
-  position: absolute;
   right: 1rem;
   top: 50%;
   transform: translateY(-50%);
@@ -661,22 +667,30 @@ h3 {
   object-fit: contain;
 }
 
+.lightbox-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+}
+
 .lightbox-info {
-  position: absolute;
-  bottom: 1rem;
-  left: 0;
-  right: 0;
   display: flex;
   justify-content: space-between;
-  padding: 0 1rem;
+  width: 100%;
   font-family: "Space Mono", monospace;
   font-size: 0.875rem;
-  color: #ffffff;
+  color: #fff;
   text-transform: uppercase;
+  margin-top: 0.5rem;
 }
+.lightbox-info .lightbox-category,
 .lightbox-info .lightbox-ref {
-  text-align: left;
+  flex: 1;
 }
 .lightbox-info .lightbox-category {
+  text-align: left;
+}
+.lightbox-info .lightbox-ref {
   text-align: right;
 }

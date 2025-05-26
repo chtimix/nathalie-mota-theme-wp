@@ -32,32 +32,35 @@
 ?>
 
 <div class="lightbox-overlay" id="lightbox" aria-hidden="true">
-    <div class="lightbox-content">
+<div class="lightbox-content">
+  <!-- Fermeture -->
+  <button class="lightbox-close" aria-label="Fermer la lightbox">&times;</button>
 
-        <!-- Bouton de fermeture -->
-        <button class="lightbox-close" aria-label="Fermer la lightbox">&times;</button>
+  <!-- Photo et navigation -->
+  <div class="lightbox-body">
 
-        <!-- Navigation gauche -->
-        <div class="lightbox-prev" role="button" aria-label="Photo précédente">
-            <img src="<?= get_template_directory_uri(); ?>/assets/img/left-arrow-white.png" alt="">
-            <span class="lightbox-nav-text">Précédente</span>
-        </div>
+    <div class="lightbox-prev" role="button" aria-label="Photo précédente">
+      <img src="<?= get_template_directory_uri(); ?>/assets/img/left-arrow-white.png" alt="">
+      <span class="lightbox-nav-text">Précédente</span>
+    </div>
 
-        <!-- Conteneur principal de la photo -->
+    <!-- Photo + infos -->
+    <div class="lightbox-main">
         <div class="lightbox-media">
             <img src="" alt="" class="lightbox-image">
         </div>
-
-        <!-- Navigation droite -->
-        <div class="lightbox-next" role="button" aria-label="Photo suivante">
-            <span class="lightbox-nav-text">Suivante</span>
-            <img src="<?= get_template_directory_uri(); ?>/assets/img/right-arrow-white.png" alt="">
-        </div>
-
-        <!-- Informations en bas -->
         <div class="lightbox-info">
-            <div class="lightbox-ref">RÉFÉRENCE</div>
             <div class="lightbox-category">CATÉGORIE</div>
+            <div class="lightbox-ref">RÉFÉRENCE</div>
         </div>
     </div>
+
+    <div class="lightbox-next" role="button" aria-label="Photo suivante">
+      <span class="lightbox-nav-text">Suivante</span>
+      <img src="<?= get_template_directory_uri(); ?>/assets/img/right-arrow-white.png" alt="">
+    </div>
+  </div>
+
+  
+</div>
 </div>

@@ -110,6 +110,11 @@ document.addEventListener('DOMContentLoaded', function () {
           } else {
             galleryContainer.insertAdjacentHTML('beforeend', data.html);
           }
+
+          // Réinitialise la lightbox sur les nouvelles photos chargées
+          if (typeof initLightbox === 'function') {
+            initLightbox();
+          }
   
           currentPage = page;
           if (loadMoreBtn) {

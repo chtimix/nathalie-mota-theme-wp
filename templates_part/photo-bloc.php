@@ -15,7 +15,9 @@ $maximize_icon = $template_dir . '/assets/img/maximize-icon.png';
 ?>
 
 <article class="photo-bloc">
-    <img src="<?= esc_url($thumbnail_url); ?>" alt="<?= esc_attr($title); ?>">
+    <img src="<?= esc_url($thumbnail_url); ?>" 
+        data-full="<?= esc_url(get_the_post_thumbnail_url(get_the_ID(), 'full')); ?>" 
+        alt="<?= esc_attr($title); ?>">
 
     <div class="photo-hover">
 
@@ -25,7 +27,7 @@ $maximize_icon = $template_dir . '/assets/img/maximize-icon.png';
         </a>
 
         <!-- Icône Lightbox -->
-        <div class="lightbox-icon-container">
+        <div class="lightbox-icon-container" data-ref="<?= esc_attr($reference); ?>">
             <img src="<?= esc_url($maximize_icon); ?>" alt="Plein écran">
         </div>
 
