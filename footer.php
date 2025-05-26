@@ -11,10 +11,7 @@
             <!-- <span><?= get_field('telephone','option'); ?></span> -->
         </nav>
     </div>
-
-    <!-- Modale Contact -->
-    <?php get_template_part('template_parts/modal-contact'); ?>
-
+    <?php get_template_part('templates_part/modal-contact'); ?>
     <?php wp_footer(); ?>
 </footer>
 </body>
