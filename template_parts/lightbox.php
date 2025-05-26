@@ -10,7 +10,7 @@
     <button class="lightbox-close" aria-label="Fermer la lightbox">×</button>
 
     <button class="lightbox-prev" aria-label="Photo précédente">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/arrow-left.svg" alt="">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/left-arrow.png" alt="">
       <span>Précédente</span>
     </button>
 
@@ -20,7 +20,7 @@
 
     <button class="lightbox-next" aria-label="Photo suivante">
       <span>Suivante</span>
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/arrow-right.svg" alt="">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/right-arrow.png" alt="">
     </button>
 
     <div class="lightbox-infos">

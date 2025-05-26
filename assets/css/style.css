@@ -580,3 +580,72 @@ h3 {
 .photo-bloc:hover .photo-hover {
   opacity: 1;
 }
+
+/* Overlay */
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+
+/* Contenu */
+.lightbox-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Image */
+.lightbox-image-wrapper img {
+  max-height: 80vh;
+  max-width: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+/* Boutons */
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  background: none;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.lightbox-prev,
+.lightbox-next {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 0.5rem;
+}
+
+/* Infos en bas */
+.lightbox-infos {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  padding: 0 20px;
+  font-size: 0.9rem;
+}
