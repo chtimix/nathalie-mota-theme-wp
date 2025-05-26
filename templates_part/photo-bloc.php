@@ -1,5 +1,5 @@
 <?php
-// Fichier : templates_parts/photo-bloc.php
+// Fichier : templates_part/photo-bloc.php
 
 if (!isset($post)) return;
 
@@ -24,10 +24,10 @@ $maximize_icon = $template_dir . '/assets/img/maximize-icon.png';
             <img src="<?= esc_url($eye_icon); ?>" alt="Voir la fiche">
         </a>
 
-        <!-- Icône plein écran en haut à droite -->
-        <a href="<?= esc_url($thumbnail_url); ?>" class="maximize-icon" title="Plein écran" data-lightbox="photo" data-title="<?= esc_attr($title); ?> (<?= esc_attr($reference); ?>)">
+        <!-- Icône Lightbox -->
+        <div class="lightbox-icon-container">
             <img src="<?= esc_url($maximize_icon); ?>" alt="Plein écran">
-        </a>
+        </div>
 
         <!-- Titre en bas à gauche -->
         <div class="photo-meta title"><?= esc_html($title); ?></div>

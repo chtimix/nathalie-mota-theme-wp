@@ -549,12 +549,12 @@ h3 {
   object-fit: contain;
   filter: drop-shadow(0 0 4px #000);
 }
-.photo-bloc .photo-hover .maximize-icon {
+.photo-bloc .photo-hover .lightbox-icon-container {
   position: absolute;
   top: 10px;
   right: 10px;
 }
-.photo-bloc .photo-hover .maximize-icon img {
+.photo-bloc .photo-hover .lightbox-icon-container img {
   width: 16px;
   height: 14px;
   object-fit: contain;
@@ -581,71 +581,102 @@ h3 {
   opacity: 1;
 }
 
-/* Overlay */
 .lightbox-overlay {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: 9999;
-  justify-content: center;
+  display: none;
   align-items: center;
-  transition: opacity 0.3s ease;
+  justify-content: center;
+}
+.lightbox-overlay.active {
+  display: flex;
 }
 
-/* Contenu */
 .lightbox-content {
   position: relative;
   max-width: 90%;
   max-height: 90%;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  justify-content: center;
 }
 
-/* Image */
-.lightbox-image-wrapper img {
-  max-height: 80vh;
-  max-width: 100%;
-  display: block;
-  object-fit: contain;
-}
-
-/* Boutons */
 .lightbox-close {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 1rem;
+  right: 1rem;
   font-size: 2rem;
+  color: #ffffff;
   background: none;
-  color: #fff;
   border: none;
   cursor: pointer;
 }
 
 .lightbox-prev,
 .lightbox-next {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 1rem;
   display: flex;
   align-items: center;
-  cursor: pointer;
   gap: 0.5rem;
+  color: #ffffff;
+  font-family: "Space Mono", monospace;
+  font-size: 0.75rem;
+  cursor: pointer;
+  user-select: none;
+}
+.lightbox-prev img,
+.lightbox-next img {
+  height: 1rem;
+  width: auto;
 }
 
-/* Infos en bas */
-.lightbox-infos {
+.lightbox-prev {
   position: absolute;
-  bottom: 10px;
-  width: 100%;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-next {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-media {
+  max-height: 100%;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox-media .lightbox-image {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.lightbox-info {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
-  color: #fff;
-  padding: 0 20px;
-  font-size: 0.9rem;
+  padding: 0 1rem;
+  font-family: "Space Mono", monospace;
+  font-size: 0.875rem;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+.lightbox-info .lightbox-ref {
+  text-align: left;
+}
+.lightbox-info .lightbox-category {
+  text-align: right;
 }
