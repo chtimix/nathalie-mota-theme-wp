@@ -96,7 +96,7 @@ get_header();
             );
             $related_query = new WP_Query($related_args);
             while ($related_query->have_posts()) : $related_query->the_post();
-                get_template_part('templates_part/photo-bloc');
+                get_template_part('template_parts/photo-bloc');
             endwhile;
             wp_reset_postdata();
             ?>

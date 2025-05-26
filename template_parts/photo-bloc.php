@@ -1,5 +1,5 @@
 <?php
-// Fichier : templates_parts/photo-bloc.php
+// Fichier : template_parts/photo-bloc.php
 
 if (!isset($post)) return;
 
