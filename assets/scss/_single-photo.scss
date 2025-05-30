@@ -136,13 +136,16 @@
   @media (max-width: 768px) {
     .single-photo {
       .photo-content {
-        flex-direction: column;
-  
+        flex-direction: column-reverse;
         .photo-infos,
         .photo-image {
           width: 100%;
           height: auto;
         }
+      }
+      .photo-content .photo-infos h1 {
+        font-size:2.875rem;
+        width:100%;
       }
   
       .photo-footer {
@@ -150,8 +153,27 @@
         align-items: stretch;
         height: auto;
         gap: 1.5rem;
-        padding: 2rem;
+        padding: 2rem 0;
+        .photo-contact {
+          display:flex;
+          flex-direction: column;
+          width: 100%;
+        }
+        .photo-contact button {
+          width:auto;
+          align-self: auto;
+          margin-left: 0;
+        }
       }
+      .photo-navigation {
+        display: none !important;
+      }
+      .related-photos {
+        padding: 2rem 0;
+      }
+    .related-photos .related-wrapper {
+      padding-top:0;
+    }
     }
   }
 
