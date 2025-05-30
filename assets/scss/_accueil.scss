@@ -155,3 +155,21 @@
   }
 }
 
+// --- Responsive ---
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 1.75rem;
+    -webkit-text-stroke: 1px $white;
+  }
+  .gallery {
+    padding-top: 2rem;
+  }
+  .gallery-container, .filters-container, .filters-left, .filters-right {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+}

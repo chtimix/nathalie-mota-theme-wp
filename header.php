@@ -19,6 +19,7 @@
                     <img src="<?php echo $logo['url']; ?>" alt="<?php bloginfo('name'); ?>">
                 </a>
             </div>
+
             <nav class="main-navigation">
                 <?php
                     wp_nav_menu([
@@ -28,6 +29,24 @@
                     ]);
                 ?>
             </nav>
+
+            <!-- bouton toggle -->
+            <button class="menu__toggle" id="menu-toggle" aria-label="Ouvrir le menu">
+                <span class="menu__toggle-bar"></span>
+                <span class="menu__toggle-bar"></span>
+                <span class="menu__toggle-bar"></span>
+            </button>
+        </div>
+
+        <!-- Menu mobile -->
+        <div class="menu__mobile" id="mobile-menu" aria-label="Menu mobile">
+            <?php
+                wp_nav_menu([
+                'theme_location' => 'main_menu',
+                'container' => false,
+                'menu_class' => 'menu__list',
+                ]);
+            ?>
         </div>
     </div>
 </header>

@@ -23,11 +23,6 @@
  * Accessibilité :
  * - Utilisation de aria-hidden pour cacher la lightbox par défaut
  * - Boutons avec des aria-label pour les lecteurs d’écran
- * - Le focus sera géré dynamiquement via JS (non inclus ici)
- *
- * À compléter :
- * - Le CSS pour la mise en forme et l’animation
- * - Le JavaScript pour la gestion des événements (ouverture, navigation, fermeture)
  */
 ?>
 
