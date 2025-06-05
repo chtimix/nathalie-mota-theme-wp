@@ -51,6 +51,10 @@ html, body {
   box-sizing: border-box;
 }
 
+.page-standard-container {
+  padding: 2rem 0;
+}
+
 h1,
 h2,
 h3 {
@@ -487,6 +491,18 @@ h3 {
   width: 283px;
 }
 
+@media (max-width: 768px) {
+  .modal-contact {
+    min-width: 350px;
+    max-width: 600px;
+    overflow-y: auto;
+    max-height: auto;
+  }
+  .modal-contact button.modal-close {
+    top: 10px;
+    right: 10px;
+  }
+}
 .single-photo {
   display: flex;
   flex-direction: column;

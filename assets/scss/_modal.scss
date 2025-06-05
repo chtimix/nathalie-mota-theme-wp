@@ -52,7 +52,6 @@
     flex-direction: column;
     align-items: center;
     max-height: 90vh;
-    //overflow-y: auto;
   }
 
   .modal-header-image {
@@ -81,7 +80,6 @@
 }
 
 
-
   .modal-form-container label {
     display: block;
     font-family: 'Space Mono', monospace;
@@ -93,17 +91,18 @@
   .modal-form-container input[type="submit"] {
     @extend .button-base;
     width:283px;
-    // background-color: $gray-medium;
-    // color: $black;
-    // font-family: 'Space Mono', monospace;
-    // padding: 0.75rem 1.5rem;
-    // border: none;
-    // border-radius: 4px;
-    // cursor: pointer;
-    // transition: background-color 0.3s ease;
-  
-    // &:hover {
-    //   background-color: $gray-dark;
-    // }
   }
   
+// --- Responsive ---
+@media (max-width: 768px) {
+  .modal-contact {
+    min-width: 350px;
+    max-width:600px;
+    overflow-y: auto;
+    max-height: auto;
+  }
+  .modal-contact button.modal-close {
+    top: 10px;
+    right: 10px;
+  }
+}

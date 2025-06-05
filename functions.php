@@ -11,7 +11,6 @@ function nathaliemota_enqueue_assets() {
   
 	// JS avec cache-busting par filemtime()
 	$scripts = [
-	  'main.js',
 	  'menu-mobile.js',
 	  'gallery.js',
 	  'lightbox.js',
